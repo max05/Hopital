@@ -24,6 +24,14 @@ namespace PPE\HopitalBundle\Controller;
         {
             return $this->render('PPEHopitalBundle:Default:medecin.html.twig');
         }
+        public function consulterRdvSecretaireAction()
+        {
+            $doctrine=$this->getDoctrine();
+            $entityManager=$doctrine->getManager();
+            $repository = $entityManager->getRepository('PPEHopitalBundle:Rdv');
+            $lesRdv=$repository->findAll();
+            return $this->render('PPEHopitalBundle:Default:consulterRDVSecretaire.html.twig',array('lesRdv'=>$lesRdv));
+        }
         public function DemandeRDVAction(Request $request)
         {
             $unrdv=new Rdv();
@@ -62,11 +70,6 @@ namespace PPE\HopitalBundle\Controller;
         
 
             return $this->render('PPEHopitalBundle:Default:consulter.html.twig',array('lesRdv'=>$lesRdv));
-        }
-         
-        public function specialiterAction()
-        {
-            return $this->render('PPEHopitalBundle:Default:specialiter.html.twig');
         }
         public function ListAction()
         {
