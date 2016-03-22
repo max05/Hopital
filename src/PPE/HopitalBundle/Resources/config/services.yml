@@ -1,0 +1,7 @@
+parameters:
+#    ppe_hopital.example.class: PPE\HopitalBundle\Example
+
+services:
+#    ppe_hopital.example:
+#        class: %ppe_hopital.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

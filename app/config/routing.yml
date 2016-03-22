@@ -1,0 +1,8 @@
+ppe_hopital:
+    resource: "@PPEHopitalBundle/Resources/config/routing.yml"
+    prefix:   /
+
+test_test:
+    resource: "@TestTestBundle/Resources/config/routing.yml"
+    prefix:   /
+

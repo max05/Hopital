@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script src="site.html.twig"></script>
+</head>
+<body>
+	
+
+
+	<?php
+	echo <form name="ajouterMedecin"> <p>nom du medecin</p>
+		<input type="textbox" name="nomMedecin"></input>
+		<p>Prenom du medecin</p>
+		<input type="textbox" name="PrenomMedecin"></input>
+		<p> service du medecin </p>;
+
+		mysql_connect("localhosts", "root", "") or die (mysql_error ());
+	mysql_select_db("mydatabase") or die(mysql_error());
+	$strSQL = "SELECT nom FROM service";
+	$rs = mysql_query($strSQL);
+	while($row = mysql_fetch_array($rs)) 
+	{
+	  echo  <input type="radio" name="service" value= '"$row['nom']"'>$row['nom']</input> "<br />";
+	}
+	mysql_close();
+
+	echo  <input type="submit" name="ajouter" value="créer"</form>;
+
+	mysql_connect("localhosts", "root", "") or die (mysql_error ());
+	mysql_select_db("mydatabase") or die(mysql_error());
+	$strSQL = "SELECT m.nom,m.prenom,s.nom as service FROM medecin m join service s on m.service=s.id ORDER BY service";
+	$rs = mysql_query($strSQL);
+	while($row = mysql_fetch_array($rs)) 
+	{
+	  echo $row['nom'] . " " .['prenom'] . " " . ['service'] . "<br />";
+	}
+	mysql_close();
+	?>
+</body>
+</html>

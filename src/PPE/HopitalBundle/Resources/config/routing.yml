@@ -1,0 +1,33 @@
+ppe_hopital_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PPEHopitalBundle:Default:index }
+ppe_hopital_accueil:
+    path:     /accueil
+    defaults: { _controller: PPEHopitalBundle:Default:accueil }
+ppe_hopital_medecin:
+    path:     /medecin
+    defaults: { _controller: PPEHopitalBundle:Default:medecin }
+ppe_hopital_DemandeRDV:
+    path:     /DemandeRDV
+    defaults: { _controller: PPEHopitalBundle:Default:DemandeRDV }
+ppe_hopital_specialiter:
+    path:     /specialiter
+    defaults: { _controller: PPEHopitalBundle:Default:specialiter }
+ppe_hopital_List:
+    path:     /List
+    defaults: { _controller: PPEHopitalBundle:Default:List }
+ppe_hopital_identificationPatient:
+    path:     /identificationPatient
+    defaults: { _controller: PPEHopitalBundle:Default:identificationPatient }
+ppe_hopital_identificationSecretaire:
+    path:     /identificationSecretaire
+    defaults: { _controller: PPEHopitalBundle:Default:identificationSecretaire }
+ppe_hopital_login:
+    path:     /login
+    defaults: { _controller: PPEHopitalBundle:Default:login }
+ppe_hopital_secretaire:
+    path:     /secretaire
+    defaults: { _controller: PPEHopitalBundle:Default:secretaire }
+ppe_hopital_modifSecretaire:
+    path:     /modifSecretaire
+    defaults: { _controller: PPEHopitalBundle:Default:modifSecretaire }
