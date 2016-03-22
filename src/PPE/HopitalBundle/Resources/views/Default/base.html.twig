@@ -34,21 +34,19 @@
       </li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">Horaire <span class="caret"></span></a>
         <ul class="dropdown-menu">
-      <li><a href="{{path('ppe_hopital_accueil',{})}}">Accueil</a></li>
+      <li><a href="{{path('ppe_hopital_consulter',{})}}">consulter RDV</a></li>
 
       <li><a href="{{path('ppe_hopital_specialiter',{})}}">Spécialiter</a></li>
         </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consultation <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Connexion <span class="caret"></span></a>
         <ul class="dropdown-menu">
-      <li><a href="{{path('ppe_hopital_accueil',{})}}">Accueil</a></li>
-
-      <li><a href="{{path('ppe_hopital_specialiter',{})}}">Spécialiter</a></li>
-        </ul>
+      <li><a href="{{path('ppe_hopital_identificationPatient',{})}}">Connexion patient</a></li>
+      <li><a href="{{path('ppe_hopital_identificationSecretaire',{})}}">Connexion secrétaire</a></li>
+       </ul>
       </li>
     </ul>
-    <li><a href="{{path('ppe_hopital_identificationPatient',{})}}">Connexion patient</a></li>
-    <li><a href="{{path('ppe_hopital_identificationSecretaire',{})}}">Connexion secrétaire</a></li>
+
   </div>
 </nav>
   
