@@ -121,11 +121,4 @@ class Medecin
     {
         return $this->specialisation;
     }
-
-    /**
-    *@var Rdv $uneRdv
-    *
-    *@ORM\ManyToOne(targetEntity="Rdv")
-    */
-    private $uneRdv;
 }
