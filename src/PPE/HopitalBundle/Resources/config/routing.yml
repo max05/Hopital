@@ -10,9 +10,9 @@ ppe_hopital_medecin:
 ppe_hopital_DemandeRDV:
     path:     /DemandeRDV
     defaults: { _controller: PPEHopitalBundle:Default:DemandeRDV }
-ppe_hopital_specialiter:
-    path:     /specialiter
-    defaults: { _controller: PPEHopitalBundle:Default:specialiter }
+ppe_hopital_consulterRdvSecretaire:
+    path:     /consulterlesRDV
+    defaults: { _controller: PPEHopitalBundle:Default:consulterRdvSecretaire }
 ppe_hopital_consulter:
     path:     /Consulter
     defaults: { _controller: PPEHopitalBundle:Default:consulter }
