@@ -30,10 +30,7 @@ namespace PPE\HopitalBundle\Controller;
             $unP=new Patient();
             $formBuilder=$this->createFormBuilder($unrdv);
             $formBuilder->add('date','datetime',array('label'=>'Entrez la date'));
-            $formBuilder->add('leMedecin', 'entity',array('label' => 'Choix du medecin',
-                            'class' => 'PPE\HopitalBundle\Entity\medecin',
-                            'property' => 'nom',
-                            'required' => true));
+            $formBuilder->add('leMedecin', 'entity',array('label' => 'Choix du medecin','class' => 'PPE\HopitalBundle\Entity\medecin','property' => 'nom','required' => true));
             $formBuilder->add('Validez','submit') ;
             $form=$formBuilder->getForm();
             //$unrdv->setLePatient(1);
@@ -74,21 +71,31 @@ namespace PPE\HopitalBundle\Controller;
         }
         public function identificationPatientAction(Request $request)
         {
-            $unPatient=new Patient();
-            $formBuilder=$this->createFormBuilder($unPatient);
-            $formBuilder->findby('nom');
-            $formBuilder->findby('mdp');
-            $form=$formBuilder->getForm();
-            if ($request->getMethod()=='POST')
+            $session=$request->getSession();
+            if ($session->get('nom')==null) 
             {
-                $form->bind($request);
-                if ($form->isValid())
+                $unPatient=new Patient();
+                $requete = $this->('request');
+                if($unPatient->getNom()==$loginPatient)
                 {
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($unPatient);
-                    $em->flush();
+               $_SESSION['nom']=$loginPatientFormulaire->getLoginPatient();
                 }
+                $formBuilder=$this->createFormBuilder($unPatient);
+                $formBuilder->findby('nom');
+                $formBuilder->findby('mdp');
+                $form=$formBuilder->getForm();
+                if ($request->getMethod()=='POST')
+                 {
+                $form->bind($request);
+                    if ($form->isValid())
+                    {
+                        $em = $this->getDoctrine()->getManager();
+                        $em->persist($unPatient);
+                        $em->flush();
+                    }
+                }   
             }
+
 
 
 
