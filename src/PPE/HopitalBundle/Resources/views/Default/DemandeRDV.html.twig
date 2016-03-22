@@ -1,25 +1,7 @@
 {% extends'PPEHopitalBundle:Default:base.html.twig' %}
 {% block corps %}
-<!DOCTYPE html>
+{{ form_start(form) }}
+    {{ form_widget(form) }}
 
-
-
-<form  method="POST" action="">
-<table align="center" border="0">
-  <tr>
-    <td>Entrez la date sous la forme JJ/MM/AAAA</td>
-    <td><input type="text" name="date" maxlength="250"></td>
-  </tr>
-  <tr>
-    <td>Entrez l'heure sous la forme HH:MM :</td>
-    <td><input type="password"name="heure" maxlength="50"></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><input type="submit" value="Validez le Rendez-Vous"></td>
-  </tr>
-
-
-
-</table>
-</form> 
+{{ form_end(form) }}
 {% endblock %}

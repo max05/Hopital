@@ -3,6 +3,9 @@
 namespace PPE\HopitalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilder;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 /**
  * Rdv
@@ -11,7 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="PPE\HopitalBundle\Entity\RdvRepository")
  */
 class Rdv
-{
+{   
+
+
     /**
      * @var integer
      *
@@ -90,5 +95,63 @@ class Rdv
     public function getEtat()
     {
         return $this->etat;
+    }
+
+    /**
+    * @var Patient $lePatient
+    * @ORM\ManyToOne(targetEntity="Patient")
+    */
+    private $lePatient;
+
+    /**
+    * @var Medecin $leMedecin
+    * @ORM\ManyToOne(targetEntity="Medecin")
+    */
+    private $leMedecin;
+
+    /**
+     * Set lePatient
+     *
+     * @param \PPE\HopitalBundle\Entity\Patient $lePatient
+     * @return Rdv
+     */
+    public function setLePatient(\PPE\HopitalBundle\Entity\Patient $lePatient = null)
+    {
+        $this->lePatient = $lePatient;
+
+        return $this;
+    }
+
+    /**
+     * Get lePatient
+     *
+     * @return \PPE\HopitalBundle\Entity\Patient 
+     */
+    public function getLePatient()
+    {
+        return $this->lePatient;
+    }
+
+    /**
+     * Set leMedecin
+     *
+     * @param \PPE\HopitalBundle\Entity\Medecin $leMedecin
+     * @return Rdv
+     */
+    public function setLeMedecin(\PPE\HopitalBundle\Entity\Medecin $leMedecin = null)
+    {
+        $this->leMedecin = $leMedecin;
+
+        return $this;
+    }
+
+    /**
+     * Get leMedecin
+     *
+     * @return \PPE\HopitalBundle\Entity\Medecin 
+     */
+    public function getLeMedecin()
+    {
+        return $this->leMedecin;
     }
 }

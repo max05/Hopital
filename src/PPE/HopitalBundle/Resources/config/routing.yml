@@ -13,9 +13,9 @@ ppe_hopital_DemandeRDV:
 ppe_hopital_specialiter:
     path:     /specialiter
     defaults: { _controller: PPEHopitalBundle:Default:specialiter }
-ppe_hopital_List:
-    path:     /List
-    defaults: { _controller: PPEHopitalBundle:Default:List }
+ppe_hopital_consulter:
+    path:     /Consulter
+    defaults: { _controller: PPEHopitalBundle:Default:consulter }
 ppe_hopital_identificationPatient:
     path:     /identificationPatient
     defaults: { _controller: PPEHopitalBundle:Default:identificationPatient }

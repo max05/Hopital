@@ -7,6 +7,8 @@ namespace PPE\HopitalBundle\Controller;
     use PPE\HopitalBundle\form\PatientType;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
+    use PPE\HopitalBundle\Form\RdvType;
+    use PPE\HopitalBundle\Entity\Rdv;
 
     class DefaultController extends Controller
     {
@@ -22,10 +24,46 @@ namespace PPE\HopitalBundle\Controller;
         {
             return $this->render('PPEHopitalBundle:Default:medecin.html.twig');
         }
-        public function DemandeRDVAction()
+        public function DemandeRDVAction(Request $request)
         {
-            return $this->render('PPEHopitalBundle:Default:DemandeRDV.html.twig');
+            $unrdv=new Rdv();
+            $unP=new Patient();
+            $formBuilder=$this->createFormBuilder($unrdv);
+            $formBuilder->add('date','datetime',array('label'=>'Entrez la date'));
+            $formBuilder->add('leMedecin', 'entity',array('label' => 'Choix du medecin',
+                            'class' => 'PPE\HopitalBundle\Entity\medecin',
+                            'property' => 'nom',
+                            'required' => true));
+            $formBuilder->add('Validez','submit') ;
+            $form=$formBuilder->getForm();
+            //$unrdv->setLePatient(1);
+            $unrdv->setEtat(1);
+            if ($request->getMethod()=='POST')
+            {
+                $form->bind($request);
+                if ($form->isValid())
+                {   
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($unrdv);
+                    $em->flush();
+                }
+            }
+
+            return $this->render('PPEHopitalBundle:Default:demandeRDV.html.twig',
+            array('form'=>$form->createView()));
+        } 
+
+        public function ConsulterAction()
+        {   
+            $doctrine=$this->getDoctrine();
+            $entityManager=$doctrine->getManager();
+            $repository = $entityManager->getRepository('PPEHopitalBundle:Rdv');
+            $lesRdv=$repository->findAll();
+        
+
+            return $this->render('PPEHopitalBundle:Default:consulter.html.twig',array('lesRdv'=>$lesRdv));
         }
+         
         public function specialiterAction()
         {
             return $this->render('PPEHopitalBundle:Default:specialiter.html.twig');
