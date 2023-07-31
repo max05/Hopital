@@ -759,7 +759,7 @@
                 "mrclay/minify": "*",
                 "phpunit/phpunit": "~3.7",
                 "ptachoire/cssembed": "*",
-                "twig/twig": "~1.6"
+                "twig/twig": "1.44.7"
             },
             "suggest": {
                 "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
